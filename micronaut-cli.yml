@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: br.com.itau.warriors.sample
+testFramework: kotest
+sourceLanguage: kotlin
+buildTool: gradle
+features: [annotation-api, app-name, gradle, http-client, kotest, kotlin, kotlin-application, logback, nats, netty-server, readme, shade, yaml]
