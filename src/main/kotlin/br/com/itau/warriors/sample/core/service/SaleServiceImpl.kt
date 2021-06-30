@@ -9,7 +9,9 @@ import javax.inject.Singleton
 
 @Singleton
 class SaleServiceImpl(val infrastructureService: InfrastructureServicePort):EntrypointServicePort {
+
     private val logger = LoggerFactory.getLogger(this::class.java)
+
     override fun saveSale(sale: Sale) {
         logger.info("\ncore/service/ : ${sale}")
         infrastructureService.sendSale(saleEvent = Convert.saleToSalveEvent(sale = sale))
