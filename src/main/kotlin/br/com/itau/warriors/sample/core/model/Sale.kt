@@ -5,7 +5,6 @@ import java.util.*
 
 @Introspected
 data class Sale(
-    val id:UUID?,
     val productid:UUID,
     val qty:Double
 )

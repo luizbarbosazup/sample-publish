@@ -7,9 +7,9 @@ import br.com.itau.warriors.sample.infrastructure.model.SaleEvent
 class Convert {
     companion object{
         fun saleRequestDtoToSale(saleRequestDto: SaleRequestDto)=
-            Sale(id = null, productid = saleRequestDto.productid, qty = saleRequestDto.qty)
+            Sale(productid = saleRequestDto.productid, qty = saleRequestDto.qty)
 
         fun saleToSalveEvent(sale: Sale) =
-            SaleEvent(id = null, productid = sale.productid, qty = sale.qty)
+            SaleEvent(productid = sale.productid, qty = sale.qty)
     }
 }
