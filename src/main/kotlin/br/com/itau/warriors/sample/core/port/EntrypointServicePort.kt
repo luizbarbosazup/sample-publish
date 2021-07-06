@@ -1,9 +1,9 @@
 package br.com.itau.warriors.sample.core.port
 
-import br.com.itau.warriors.sample.core.model.Sale
+import br.com.itau.warriors.sample.core.model.SaleInformation
 import javax.inject.Singleton
 
 @Singleton
 interface EntrypointServicePort {
-    fun saveSale(sale:Sale)
+    fun saveSale(saleInformation: SaleInformation)
 }

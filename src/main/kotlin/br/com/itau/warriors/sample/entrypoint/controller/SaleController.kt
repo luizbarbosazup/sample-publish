@@ -1,6 +1,7 @@
 package br.com.itau.warriors.sample.entrypoint.controller
 
 import br.com.itau.warriors.sample.core.mapper.Convert
+import br.com.itau.warriors.sample.core.model.Event
 import br.com.itau.warriors.sample.core.model.Sale
 import br.com.itau.warriors.sample.core.port.EntrypointServicePort
 import br.com.itau.warriors.sample.entrypoint.controller.dto.SaleRequestDto
@@ -18,6 +19,11 @@ class SaleController(val servicePort: EntrypointServicePort) {
     @Produces(MediaType.APPLICATION_JSON)
     fun saveSale(@Body saleRequestDto: SaleRequestDto){
         logger.info("\nValores Recebidos do Client : ${saleRequestDto}")
-        servicePort.saveSale(Convert.saleRequestDtoToSale(saleRequestDto))
+
+        servicePort.saveSale(Convert.saleRequestDtoToSaleInformation(
+            saleRequestDto = saleRequestDto,
+        event = Event.SAVE_SALE))
+
     }
 }
+
