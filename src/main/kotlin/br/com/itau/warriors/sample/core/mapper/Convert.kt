@@ -3,8 +3,10 @@ package br.com.itau.warriors.sample.core.mapper
 import br.com.itau.warriors.sample.core.model.Event
 import br.com.itau.warriors.sample.core.model.Sale
 import br.com.itau.warriors.sample.core.model.SaleInformation
+
 import br.com.itau.warriors.sample.entrypoint.controller.dto.SaleRequestDto
-import br.com.itau.warriors.sample.infrastructure.model.SaleEvent
+import br.com.itau.warriors.sample.infrastructure.model.SaleEntity
+import br.com.itau.warriors.sample.infrastructure.model.SaleEntityInformation
 
 class Convert {
     companion object{
@@ -16,7 +18,13 @@ class Convert {
                     qty = saleRequestDto.qty)
             )
 
-        fun saleToSalveEvent(sale: Sale) =
-            SaleEvent(productid = sale.productid, qty = sale.qty)
+        fun saleInformationToSaleEntityInformation(saleInformation: SaleInformation,event:br.com.itau.warriors.sample.infrastructure.model.Event) =
+            SaleEntityInformation(
+                event = event,
+                SaleEntity(
+                    productid = saleInformation.sale.productid,
+                    qty = saleInformation.sale.qty))
+
+
     }
 }

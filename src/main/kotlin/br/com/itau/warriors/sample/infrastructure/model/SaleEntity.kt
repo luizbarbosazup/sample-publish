@@ -4,7 +4,7 @@ import io.micronaut.core.annotation.Introspected
 import java.util.*
 
 @Introspected
-data class SaleEvent (
+data class SaleEntity (
     val productid:UUID,
     val qty:Double
         )
