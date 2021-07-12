@@ -5,6 +5,7 @@ import java.util.*
 
 @Introspected
 data class SaleEntity (
+    val saleId:UUID?,
     val productid:UUID,
     val qty:Double
         )

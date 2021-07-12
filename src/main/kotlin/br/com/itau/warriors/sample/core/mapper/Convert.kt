@@ -5,8 +5,10 @@ import br.com.itau.warriors.sample.core.model.Sale
 import br.com.itau.warriors.sample.core.model.SaleInformation
 
 import br.com.itau.warriors.sample.entrypoint.controller.dto.SaleRequestDto
+import br.com.itau.warriors.sample.infrastructure.model.EventEntity
 import br.com.itau.warriors.sample.infrastructure.model.SaleEntity
 import br.com.itau.warriors.sample.infrastructure.model.SaleEntityInformation
+import java.util.*
 
 class Convert {
     companion object{
@@ -18,12 +20,16 @@ class Convert {
                     qty = saleRequestDto.qty)
             )
 
-        fun saleInformationToSaleEntityInformation(saleInformation: SaleInformation,event:br.com.itau.warriors.sample.infrastructure.model.Event) =
+        fun saleInformationToSaleEntityInformation(saleInformation: SaleInformation) =
             SaleEntityInformation(
-                event = event,
+                eventEntity = EventEntity.SAVE_SALE,
                 SaleEntity(
+                    saleId = null,
                     productid = saleInformation.sale.productid,
-                    qty = saleInformation.sale.qty))
+                    qty = saleInformation.sale.qty
+                )
+            )
+
 
 
     }
